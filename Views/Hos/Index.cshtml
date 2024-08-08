@@ -1,0 +1,146 @@
+@model List<Ward>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .content-table{
+    border-collapse: collapse; /*เส้นขอบนอก*/
+    margin: 25px 0; /*ขนาดตัวอักษร*/
+    font-size: 0.9em; /*ความกว้ง*/
+    min-width: 400px; /*ทำให้มุมมน*/
+    border-radius: 10px 10px 0 0; /*ซ่อนข้อความส่วนที่เกิน*/
+    overflow: hidden; /*สร้างเงา*/
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15); /*สร้างระยะauto*/
+}
+.content-table thead tr{
+   background-color: #04ff8a;/*สีพื้นหลัง*/
+   color: #000000;/*สี*/
+   text-align: center;/*ตัวอักษรกึ่งกลาง*/
+   font-weight: bold;/*ความหนาของตัวอักษร*/
+   height: 55px;/*ความสูง*/
+}
+.content-table  th,
+.content-table  tr{
+   padding: 2px 15px; /*สร้างระยะ*/
+}
+.content-table tbody tr{
+    border-bottom: 1px solid #000000; /*เส้นขอบ*/
+}
+.content-table tbody tr:nth-of-type(even){
+    background-color: #fffffff6; /*สีพื้นหลัง*/
+}
+.content-table tbody tr:nth-of-type(){
+    border-bottom: 20px solid #00ff73; /*สีพื้นหลัง*/
+}
+
+table{
+    border-collapse: collapse;;/*เส้นขอบนอก*/
+    background: #fffffff4;/*สีพื้นหลัง*/
+    
+}
+th,
+td{
+    padding: 1rem;/*สร้างระยะ*/
+}
+th {
+    text-align: left; /*ตัวอักษรชิดซ้าย*/
+    background: hsla(0, 0%, 100%, 0.5);  /*สีพื้นหลัง*/
+}
+tr:nth-of-type(2n) {
+    background: hsl(0, 0%, 100%);  /*สีพื้นหลัง*/
+}
+.btn1 {
+        width: 80px;  @*ความกว้าง*@
+        height: 33px; @*ความสูง*@
+        background: #aeaeae; @*พื้นหลัง*@
+        border: none; @*ไม่แสดงเส้น*@
+        outline: none; @*ไม่แสดงพื้นที่รอบนอก*@
+        border-radius: 20px; @*ทำให้มุมมน*@
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); @*สร้างเงา*@
+        cursor: pointer; @*ชี้แล้วเปลี่ยนลูกศร*@
+        color: #000000;  @*สี*@
+        font-weight: 600; @*ขนาดตัวอักษร *@
+        background-image: linear-gradient(180deg, #6efda7 0%, #028938 70%);  @*ไล่สี*@
+        
+      
+    }
+.btn2 {
+        width: 60px;  @*ความกว้าง*@
+        height: 33px; @*ความสูง*@
+        background: #aeaeae; @*พื้นหลัง*@
+        border: none; @*ไม่แสดงเส้น*@
+        outline: none; @*ไม่แสดงพื้นที่รอบนอก*@
+        border-radius: 20px; @*ทำให้มุมมน*@
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); @*สร้างเงา*@
+        cursor: pointer; @*ชี้แล้วเปลี่ยนลูกศร*@
+        color: #000000;  @*สี*@
+        font-weight: 600; @*ขนาดตัวอักษร *@
+        background-image: linear-gradient(180deg, #FFFFCC 0%, #FFA500 70%);  @*ไล่สี*@
+        
+      
+    }
+.btn3 {
+        width: 65px;  @*ความกว้าง*@
+        height: 33px; @*ความสูง*@
+        background: #aeaeae; @*พื้นหลัง*@
+        border: none; @*ไม่แสดงเส้น*@
+        outline: none; @*ไม่แสดงพื้นที่รอบนอก*@
+        border-radius: 20px; @*ทำให้มุมมน*@
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); @*สร้างเงา*@
+        cursor: pointer; @*ชี้แล้วเปลี่ยนลูกศร*@
+        color: #000000;  @*สี*@
+        font-weight: 600; @*ขนาดตัวอักษร *@
+        background-image: linear-gradient(180deg, #FF9999 0%, #FF0000 70%);  @*ไล่สี*@
+        
+      
+    }
+
+</style>
+<table class="content-table table-bordered ">
+    <thead >
+        <tr>
+            <th>Ward1</th>
+            <th>Name</th>
+            <th>OldCode</th>
+            <th>Spclty</th>
+            <th>Bedcount</th>
+            <th>Shortname</th>
+            <th>SssCode</th>
+            <th>HosGuid</th>
+            <th>NameOldSk</th>
+            <th>ShortName1</th>
+            <th>WardExportCode</th>
+            <th>ShortNameBarcode</th>
+            <th>WardActive</th>
+            <th>IpdRxShiftTypeId</th>
+            <th>SelectBednoFromLayout</th>
+            <th>IpKey</th>
+            <th>StrictAccess</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ward in Model)
+        {
+            <tr  style="color:rgb(0, 0, 0);@ViewBag.Title">
+                <td>@ward.Ward1</td>
+                <td>@ward.Name</td>
+                <td>@ward.OldCode</td>
+                <td>@ward.Spclty</td>
+                <td>@ward.Bedcount</td>
+                <td>@ward.Shortname</td>
+                <td>@ward.SssCode</td>
+                <td>@ward.HosGuid</td>
+                <td>@ward.NameOldSk</td>
+                <td>@ward.ShortName1</td>
+                <td>@ward.WardExportCode</td>
+                <td>@ward.ShortNameBarcode</td>
+                <td>@ward.WardActive</td>
+                <td>@ward.IpdRxShiftTypeId</td>
+                <td>@ward.SelectBednoFromLayout</td>
+                <td>@ward.IpKey</td>
+                <td>@ward.StrictAccess</td>
+            </tr>
+        }   
+    </tbody>
+</table>
